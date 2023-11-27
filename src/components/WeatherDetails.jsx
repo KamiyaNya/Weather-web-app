@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Box, Flex, Skeleton, Image, Heading, Grid, useColorModeValue } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchWeatherData } from './../redux/slices/weather.slice';
-import WeatherDetailsStat from './weatherDetails/weatherDetailsStat';
+import WeatherDetailsStat from './weatherDetails/WeatherDetailsStat';
 import { weatherIcons } from '../utils/weatherIcons';
 import { fahrenheitToCelsius } from '../utils/celciusConverter';
 import { Sunrise, Sunset } from 'lucide-react';
