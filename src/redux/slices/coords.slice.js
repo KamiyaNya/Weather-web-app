@@ -8,12 +8,12 @@ const initialState = {
 };
 
 export const fetchCityByCoords = createAsyncThunk('coords/fetchCityByCoords', async ({ lat, lon }) => {
-	const { data } = await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=a547952b-76d0-4433-abed-c8d70389138a&geocode=${lon},${lat}&format=json`);
+	const { data } = await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=a547952b-76d0-4433-abed-c8d70389138a&geocode=${lon},${lat}&format=json`, { headers: null });
 	return data?.response.GeoObjectCollection.featureMember[0].GeoObject.description.split(',')[0];
 });
 
 export const fetchCoordsByCity = createAsyncThunk('coords/fetchCoordsByCity', async ({ city }, thunkApi) => {
-	const { data } = await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=a547952b-76d0-4433-abed-c8d70389138a&geocode=${city.trim()}&format=json`);
+	const { data } = await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=a547952b-76d0-4433-abed-c8d70389138a&geocode=${city.trim()}&format=json`, { headers: null });
 	if (data.statusCode === 404) {
 		return false;
 	} else {
